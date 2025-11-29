@@ -1,23 +1,16 @@
 {
-  "name": "out-out",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "aura",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev:backend": "pnpm --filter backend dev",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev": "concurrently \"pnpm dev:backend\" \"pnpm dev:frontend\""
   },
-  "dependencies": {
-    "@astrojs/react": "^4.4.2",
-    "@tailwindcss/vite": "^4.1.17",
-    "@types/react": "^19.2.7",
-    "@types/react-dom": "^19.2.3",
-    "astro": "^5.15.9",
-    "react": "^19.2.0",
-    "react-countup": "^6.5.3",
-    "react-dom": "^19.2.0",
-    "react-intersection-observer": "^10.0.0",
-    "tailwindcss": "^4.1.17"
+  "devDependencies": {
+    "concurrently": "^9.0.0"
   }
 }
