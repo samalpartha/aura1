@@ -1,4 +1,5 @@
 import { Heading } from "@radix-ui/themes";
+import type { CSSProperties } from "react";
 
 export function AuraLogo() {
   return (
@@ -8,7 +9,7 @@ export function AuraLogo() {
   );
 }
 
-const logoStyle: React.CSSProperties = {
+const logoStyle: CSSProperties = {
   color: "#fff",
   textShadow: "0 2px 4px rgba(0,0,0,0.4), 0 5px 15px rgba(255,255,255,0.2)"
 };
