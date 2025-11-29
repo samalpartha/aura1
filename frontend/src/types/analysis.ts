@@ -1,11 +1,25 @@
+export interface FileSummary {
+  path: string;
+  language: string;
+  linesOfCode: number;
+}
+
+export interface RepoSnapshot {
+  repoUrl: string;
+  branch: string;
+  files: FileSummary[];
+}
+
 export interface CodeReview {
   file: string;
-  severity: "error" | "warning";
+  line?: number;
+  severity: "info" | "warning" | "error";
   message: string;
   suggestion?: string;
 }
 
 export interface GeneratedTest {
+  file: string;
   target: string;
   framework: string;
   code: string;
@@ -18,7 +32,7 @@ export interface RegressionRisk {
 }
 
 export interface AnalysisReport {
-  snapshot: any; // Keep snapshot as any for now
+  snapshot: RepoSnapshot;
   reviews: CodeReview[];
   tests: GeneratedTest[];
   risks: RegressionRisk[];
